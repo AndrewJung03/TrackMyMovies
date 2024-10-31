@@ -95,7 +95,7 @@ An Example Movie with Embedded Items:
 * (5 points) Automated Functional Testing
     * Tools that automatically test all functionality of a web app
     * Headless Chrome to automate testing
-    *  Use Headless Chrome to create automated tests, with links to testing code and screen captures of test results
+    * Use Headless Chrome to create automated tests, with links to testing code and screen captures of test results
 
 10 points total out of 8 required points
   
