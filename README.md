@@ -1,117 +1,109 @@
 The content below is an example project proposal / requirements document. Replace the text below the lines marked "__TODO__" with details specific to your project. Remove the "TODO" lines.
 
-(__TODO__: your project name)
-
-# Shoppy Shoperson 
+# Track My Movies
 
 ## Overview
 
-(__TODO__: a brief one or two paragraph, high-level description of your project)
+According to data collected by Popflick, the average American wathces 6 movies a year (at the theatres). Over time, that adds up to a lot of movies and it's easy to forget what you’ve seen, which ones you loved, or how you'd rate them. That's what Track My Movies is for!
 
-Remembering what to buy at the grocery store is waaaaay too difficult. Also, shopping for groceries when you're hungry leads to regrettable purchases. Sooo... that's where Shoppy Shoperson comes in!
-
-Shoppy Shoperson is a web app that will allow users to keep track of multiple grocery lists. Users can register and login. Once they're logged in, they can create or view their grocery list. For every list that they have, they can add items to the list or cross off items.
+Track My Movies is a web app that allows users to create an account and keep track of all the movies they've watched. Users can add movies to their watchlist with posters, write personal notes, and rate each film. Additionally, users can explore other users' profiles to discover what movies others have been watching and see their ratings and reviews. 
 
 
 ## Data Model
 
-(__TODO__: a description of your application's data and their relationships to each other) 
+The application will store Users, Movies, Notes, Reviews
 
-The application will store Users, Lists and Items
-
-* users can have multiple lists (via references)
-* each list can have multiple items (by embedding)
-
-(__TODO__: sample documents)
+* user has a list of movies that they've watched with multiple movies (via refrences)
+* each movie has a rating, notes, and a cover image
 
 An Example User:
 
 ```javascript
 {
-  username: "shannonshopper",
+  username: "movieEnjoyer99",
   hash: // a password hash,
-  lists: // an array of references to List documents
+  moviesWatched: references to Movie documents
 }
 ```
 
-An Example List with Embedded Items:
+An Example Movie with Embedded Items:
 
 ```javascript
 {
-  user: // a reference to a User object
-  name: "Breakfast foods",
-  items: [
-    { name: "pancakes", quantity: "9876", checked: false},
-    { name: "ramen", quantity: "2", checked: true},
-  ],
-  createdAt: // timestamp
+  user: ,// a reference to a User object
+  title: "Tenet",
+  picture: //URL to movie poster
+  review: 5,
+  note: "Meh",
+  release: "09/03/2020",
+  addedOn: "10/23/24"
 }
 ```
 
 
 ## [Link to Commented First Draft Schema](db.mjs) 
 
-(__TODO__: create a first draft of your Schemas in db.mjs and link to it)
-
 ## Wireframes
 
-(__TODO__: wireframes for all of the pages on your site; they can be as simple as photos of drawings or you can use a tool like Balsamiq, Omnigraffle, etc.)
 
-/list/create - page for creating a new shopping list
+/login - login page
 
-![list create](documentation/list-create.png)
+![list create](documentation/login.png)
 
-/list - page for showing all shopping lists
+/register - register page
 
-![list](documentation/list.png)
+![list](documentation/register.png)
 
-/list/slug - page for showing specific shopping list
+/home - list of movies user has added with a some information
 
-![list](documentation/list-slug.png)
+![list](documentation/home1.png)
+
+/add - page where user can add a movie
+
+![list](documentation/add.png)
+
+/home/slug - shows idividual movie in detail
+
+![list](documentation/home:slug.png)
+
+/home/slug - shows another user's list
+![list](documentation/home:slug:diffuser.png)
 
 ## Site map
 
-(__TODO__: draw out a site map that shows how pages are related to each other)
-
-Here's a [complex example from wikipedia](https://upload.wikimedia.org/wikipedia/commons/2/20/Sitemap_google.jpg), but you can create one without the screenshots, drop shadows, etc. ... just names of pages and where they flow to.
+![list](documentation/sitemap1.png)
 
 ## User Stories or Use Cases
 
-(__TODO__: write out how your application will be used through [user stories](http://en.wikipedia.org/wiki/User_story#Format) and / or [use cases](https://en.wikipedia.org/wiki/Use_case))
-
 1. as non-registered user, I can register a new account with the site
 2. as a user, I can log in to the site
-3. as a user, I can create a new grocery list
-4. as a user, I can view all of the grocery lists I've created in a single list
-5. as a user, I can add items to an existing grocery list
-6. as a user, I can cross off items in an existing grocery list
+3. as a user, I can add a movie to my list
+4. as a user, I can add notes, and reviews to my movies
+5. as a user, I can view the list of all of my added movies
+6. as a user, I can view other user's movie lists and movie details (reviews, notes)
 
 ## Research Topics
 
-(__TODO__: the research topics that you're planning on working on along with their point values... and the total points of research topics listed)
+* (3 points) Unit testing with JavaScript
+    * Testing software where individual components of the codebase are tested
+    * Implement Mocha Test (testing framework)
+    * 4 tests minimum in order to ensure functionality
+* (2 points) CSS Framework
+    * A collection of CSS and js tools that provide help with styling
+    * User bootstrap for custom styling
+    * Create user interface that is userfriendly and aesthetic 
+* (5 points) Automated Functional Testing
+    * Tools that automatically test all functionality of a web app
+    * Headless Chrome to automate testing
+    *  Use Headless Chrome to create automated tests, with links to testing code and screen captures of test results
 
-* (5 points) Integrate user authentication
-    * I'm going to be using passport for user authentication
-    * And account has been made for testing; I'll email you the password
-    * see <code>cs.nyu.edu/~jversoza/ait-final/register</code> for register page
-    * see <code>cs.nyu.edu/~jversoza/ait-final/login</code> for login page
-* (4 points) Perform client side form validation using a JavaScript library
-    * see <code>cs.nyu.edu/~jversoza/ait-final/my-form</code>
-    * if you put in a number that's greater than 5, an error message will appear in the dom
-* (5 points) vue.js
-    * used vue.js as the frontend framework; it's a challenging library to learn, so I've assigned it 5 points
-
-10 points total out of 8 required points (___TODO__: addtional points will __not__ count for extra credit)
+10 points total out of 8 required points
+  
 
 
 ## [Link to Initial Main Project File](app.mjs) 
 
-(__TODO__: create a skeleton Express application with a package.json, app.mjs, views folder, etc. ... and link to your initial app.mjs)
-
 ## Annotations / References Used
 
-(__TODO__: list any tutorials/references/etc. that you've based your code off of)
-
-1. [passport.js authentication docs](http://passportjs.org/docs) - (add link to source code that was based on this)
-2. [tutorial on vue.js](https://vuejs.org/v2/guide/) - (add link to source code that was based on this)
+N/A
 
