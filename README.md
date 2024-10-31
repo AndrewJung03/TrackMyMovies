@@ -11,7 +11,7 @@ Track My Movies is a web app that allows users to create an account and keep tra
 
 ## Data Model
 
-The application will store Users, Movies, Notes, Reviews
+The application will store Users, and Movies
 
 * user has a list of movies that they've watched with multiple movies (via refrences)
 * each movie has a rating, notes, and a cover image
