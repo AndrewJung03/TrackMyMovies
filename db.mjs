@@ -23,3 +23,4 @@ const movie = new mongoose.Schema({
     addedOn: { type: String, required: true }
 });
 
+export {user, movie};
