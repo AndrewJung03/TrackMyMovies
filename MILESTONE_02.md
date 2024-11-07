@@ -31,3 +31,6 @@ CSS:
 https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/public/css/style.css
 
 Bootstrap Implementation:
+
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/views/add-movie.hbs
+
