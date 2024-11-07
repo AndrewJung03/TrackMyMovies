@@ -60,7 +60,6 @@ app.post('/delete-movie/:id', async (req, res) => {
     await Movie.findByIdAndDelete(req.params.id);
     res.redirect('/my-movies');
   } catch (error) {
-    console.error("Error deleting movie:", error);
     res.status(500).send("Failed to delete movie. Please try again.");
   }
 });
@@ -70,7 +69,6 @@ app.get('/edit-movie/:id', async (req, res) => {
     const movie = await Movie.findById(req.params.id);
     res.render('edit-movie', { movie, title: "Edit Movie" });
   } catch (error) {
-    console.error("Error fetching movie for edit:", error);
     res.status(500).send("Failed to load movie for editing.");
   }
 });

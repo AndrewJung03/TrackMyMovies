@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
 //includes which user posted, title, picture, review, notes, release date, and added date
 const movieSchema = new mongoose.Schema({
     title: { type: String, required: true },
-    picture: { type: String },
+    url: { type: String },
     review: { type: Number, min: 1, max: 5 },
     note: { type: String },
     release: { type: String, required: true }
@@ -31,7 +31,8 @@ const mongoURI = 'mongodb://localhost:27017/moviedb';
 mongoose.connect(process.env.DSN, {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+})
+
 
 
 export default mongoose;
