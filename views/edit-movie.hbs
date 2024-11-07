@@ -1,0 +1,19 @@
+<h1>Edit Movie</h1>
+<form action="/edit-movie/{{movie._id}}" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" id="title" name="title" value="{{movie.title}}" required>
+
+  <label for="url">URL:</label>
+  <input type="text" id="url" name="url" value="{{movie.url}}">
+
+  <label for="review">Review (1-5):</label>
+  <input type="number" id="review" name="review" min="1" max="5" value="{{movie.review}}">
+
+  <label for="note">Note:</label>
+  <textarea id="note" name="note">{{movie.note}}</textarea>
+
+  <label for="release">Release Date:</label>
+  <input type="date" id="release" name="release" value="{{movie.release}}">
+
+  <button type="submit">Update Movie</button>
+</form>
