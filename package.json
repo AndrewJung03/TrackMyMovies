@@ -1,16 +1,16 @@
 {
   "name": "final-project-andrewjung03",
   "version": "1.0.0",
-  "description": "The content below is an example project proposal / requirements document. Replace the text below the lines marked \"__TODO__\" with details specific to your project. Remove the \"TODO\" lines.",
+  "description":"",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.1.0", 
+    "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
