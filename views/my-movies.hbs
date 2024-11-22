@@ -1,16 +1,32 @@
-<h1>My Movies</h1>
-<ul>
-  <a href="/logout">Logout</a>
-  {{#each movies}}
-    <li>
-      <h2>{{this.title}}</h2>
-      <p>{{this.description}}</p>
-      <p>Review: {{this.review}}/5</p>
-      <form action="/delete-movie/{{this._id}}" method="POST" style="display:inline;">
-        <button type="submit">Delete</button>
-      </form>
-      <a href="/edit-movie/{{this._id}}">Edit</a>
-    </li>
-  {{/each}}
-</ul>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Movies</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">My Movies</h1>
+    <div class="text-end">
+      <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+    <ul class="list-group">
+      {{#each movies}}
+        <li class="list-group-item mb-3">
+          <h2 class="h5">{{this.title}}</h2>
+          <p>{{this.description}}</p>
+          <p>Review: {{this.review}}/5</p>
+          <div>
+            <form action="/delete-movie/{{this._id}}" method="POST">
+              <button type="submit" class="btn btn-danger btn-sm btn-sm">Delete</button>
+            </form>
+            <a href="/edit-movie/{{this._id}}" class="btn btn-primary btn-sm">Edit</a>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</body>
+</html>

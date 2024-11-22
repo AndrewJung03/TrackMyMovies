@@ -1,18 +1,45 @@
-<form action="/edit-movie/{{movie._id}}" method="POST">
-  <label for="title">Title:</label>
-  <input type="text" id="title" name="title" value="{{movie.title}}" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Movie</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h1 class="text-center mb-3">Edit Movie</h1>
+    <form action="/edit-movie/{{movie._id}}" method="POST" class="card p-4 shadow">
+      <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" name="title" value="{{movie.title}}" class="form-control" required>
+      </div>
 
-  <label for="url">URL:</label>
-  <input type="text" id="url" name="url" value="{{movie.url}}">
+      <div class="mb-3">
+        <label for="url" class="form-label">Picture URL:</label>
+        <input type="text" id="url" name="url" value="{{movie.url}}" class="form-control">
+      </div>
 
-  <label for="review">Review (1-5):</label>
-  <input type="number" id="review" name="review" min="1" max="5" value="{{movie.review}}">
+      <div class="mb-3">
+        <label for="review" class="form-label">Review (1-5):</label>
+        <input type="number" id="review" name="review" min="1" max="5" value="{{movie.review}}" class="form-control">
+      </div>
+  
+      <div class="mb-3">
+        <label for="note" class="form-label">Note:</label>
+        <textarea id="note" name="note" rows="3" class="form-control">{{movie.note}}</textarea>
+      </div>
 
-  <label for="note">Note:</label>
-  <textarea id="note" name="note">{{movie.note}}</textarea>
+      <div class="mb-3">
+        <label for="release" class="form-label">Release Date:</label>
+        <input type="date" id="release" name="release" value="{{movie.release}}" class="form-control">
+      </div>
 
-  <label for="release">Release Date:</label>
-  <input type="date" id="release" name="release" value="{{movie.release}}">
-
-  <button type="submit">Update Movie</button>
-</form>
+      <div>
+        <button type="submit" class="btn btn-primary">Update Movie</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
