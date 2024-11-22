@@ -37,14 +37,13 @@ Logout button in /my-movies to logout of account.
 
 URL(s) to github repository with commits that show progress on research
 --- 
-- [bootsrap added to HTML] 
+- [bootsrap added to HTML]  https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/commit/4c5e2daa250cd1c0724086015fbefc7c076f37e5#diff-ef96c2735a5b5aa473a8cc73e4dd569b6854671a7df7428ab90cda89e15a467a
     - login
     - register
     - home
     - my-movies
     - add-movies
     - edit movies
-- []
 
 References 
 ---
