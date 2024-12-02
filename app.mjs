@@ -1,6 +1,8 @@
 import express from 'express';
 import session from 'express-session';
 import path from 'path';
+import multer from 'multer';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import { Movie } from './db.mjs';
 import * as auth from './auth.mjs';
@@ -9,8 +11,19 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Multer Setup for File Uploads
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+const upload = multer({
+  dest: uploadDir,
+  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+});
+
 // Middleware Setup
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(uploadDir)); // Serve uploaded files
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: false }));
@@ -96,16 +109,16 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-// Add Movie 
+// Add Movie
 app.get('/add-movie', authRequired, (req, res) => {
   res.render('add-movie', { title: 'Add a Movie' });
 });
 
-app.post('/add-movie', authRequired, async (req, res) => {
+app.post('/add-movie', authRequired, upload.single('picture'), async (req, res) => {
   try {
     const movie = new Movie({
       title: req.body.title,
-      url: req.body.url,
+      url: req.file ? `/uploads/${req.file.filename}` : null,
       review: req.body.review,
       note: req.body.note,
       release: req.body.release,
@@ -124,7 +137,12 @@ app.post('/add-movie', authRequired, async (req, res) => {
 // View Movies
 app.get('/my-movies', authRequired, async (req, res) => {
   try {
-    const movies = await Movie.find({ user: req.session.user._id });
+    const searchQuery = req.query.search;
+    const filter = { user: req.session.user._id };
+    if (searchQuery) {
+      filter.title = { $regex: searchQuery, $options: 'i' }; // Case-insensitive search
+    }
+    const movies = await Movie.find(filter);
     res.render('my-movies', { title: 'My Movies', movies });
   } catch (error) {
     console.error('Load Movies Error:', error);
@@ -143,15 +161,20 @@ app.get('/edit-movie/:id', authRequired, async (req, res) => {
   }
 });
 
-app.post('/edit-movie/:id', authRequired, async (req, res) => {
+app.post('/edit-movie/:id', authRequired, upload.single('picture'), async (req, res) => {
   try {
-    await Movie.findByIdAndUpdate(req.params.id, {
+    const updateData = {
       title: req.body.title,
-      url: req.body.url,
-      note: req.body.note,
       release: req.body.release,
       review: parseInt(req.body.review, 10),
-    });
+      note: req.body.note,
+    };
+
+    if (req.file) {
+      updateData.url = `/uploads/${req.file.filename}`;
+    }
+
+    await Movie.findByIdAndUpdate(req.params.id, updateData, { runValidators: true });
     res.redirect('/my-movies');
   } catch (error) {
     console.error('Update Movie Error:', error);

@@ -7,38 +7,30 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container mt-3">
-    <h1 class="text-center mb-3">Add a Movie</h1>
-    <form action="/add-movie" method="POST" class="card p-4 shadow">
+  <div class="container">
+    <h1 class="text-center">Add Movie</h1>
+    <form action="/add-movie" method="POST" enctype="multipart/form-data">
       <div class="mb-3">
-        <label>Title:</label>
+        <label for="title" class="form-label">Title</label>
         <input type="text" id="title" name="title" class="form-control" required>
       </div>
-
       <div class="mb-3">
-        <label>Picture URL:</label>
-        <input type="text" id="picture" name="picture" class="form-control">
+        <label for="release" class="form-label">Release Date</label>
+        <input type="text" id="release" name="release" class="form-control">
       </div>
-
       <div class="mb-3">
-        <label>Review (1-5):</label>
-        <input type="number" id="review" name="review" min="1" max="5" class="form-control">
+        <label for="review" class="form-label">Review</label>
+        <input type="number" id="review" name="review" class="form-control" min="1" max="5">
       </div>
-
       <div class="mb-3">
-        <label>Note:</label>
-        <textarea id="note" name="note" rows="3" class="form-control"></textarea>
+        <label for="note" class="form-label">Note</label>
+        <textarea id="note" name="note" class="form-control"></textarea>
       </div>
-
       <div class="mb-3">
-        <label>Release Date:</label>
-        <input type="date" id="release" name="release" class="form-control">
+        <label for="picture" class="form-label">Upload Picture</label>
+        <input type="file" id="picture" name="picture" class="form-control">
       </div>
-
-      <div>
-        <button type="submit" class="btn btn-primary">Add Movie</button>
-        <button type="reset" class="btn btn-secondary">Clear Form</button>
-      </div>
+      <button type="submit" class="btn btn-primary">Add Movie</button>
     </form>
   </div>
 </body>

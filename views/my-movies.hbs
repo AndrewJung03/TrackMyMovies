@@ -9,23 +9,62 @@
 <body>
   <div class="container">
     <h1 class="text-center">My Movies</h1>
-    <div class="text-end">
+
+    <!-- Search Form -->
+    <div class="mb-4">
+      <form class="row align-items-center g-2" method="GET" action="/my-movies">
+        <!-- Search Input -->
+        <div class="col-md-8">
+          <input 
+            type="text" 
+            name="search" 
+            class="form-control" 
+            placeholder="Search movies..." 
+            value="{{search}}" 
+          />
+        </div>
+
+        <!-- Add Movie Button -->
+        <div class="col-md-auto">
+          <a href="/add-movie" class="btn btn-success w-100">Add Movie</a>
+        </div>
+
+        <!-- Search Button -->
+        <div class="col-md-auto">
+          <button type="submit" class="btn btn-primary w-100">Search</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="text-end mb-3">
       <a href="/logout" class="btn btn-danger">Logout</a>
     </div>
+
+    <!-- Movie List -->
     <ul class="list-group">
-      {{#each movies}}
-        <li class="list-group-item mb-3">
-          <h2 class="h5">{{this.title}}</h2>
-          <p>{{this.description}}</p>
-          <p>Review: {{this.review}}/5</p>
-          <div>
-            <form action="/delete-movie/{{this._id}}" method="POST">
-              <button type="submit" class="btn btn-danger btn-sm btn-sm">Delete</button>
-            </form>
-            <a href="/edit-movie/{{this._id}}" class="btn btn-primary btn-sm">Edit</a>
-          </div>
+      {{#if movies.length}}
+        {{#each movies}}
+          <li class="list-group-item mb-3">
+            <h2 class="h5">{{this.title}}</h2>
+            {{#if this.url}}
+              <img src="{{this.url}}" alt="{{this.title}}" class="img-fluid mb-3" style="max-width: 200px;" />
+            {{/if}}
+            <p>{{this.description}}</p>
+            <p>Review: {{this.review}}/5</p>
+            <p><strong>Note:</strong> {{this.note}}</p> <!-- Added Note -->
+            <div>
+              <form action="/delete-movie/{{this._id}}" method="POST">
+                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+              </form>
+              <a href="/edit-movie/{{this._id}}" class="btn btn-primary btn-sm">Edit</a>
+            </div>
+          </li>
+        {{/each}}
+      {{else}}
+        <li class="list-group-item text-center">
+          <p>No movies found.</p>
         </li>
-      {{/each}}
+      {{/if}}
     </ul>
   </div>
 </body>
