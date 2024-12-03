@@ -20,7 +20,7 @@ http://linserv1.cims.nyu.edu:12142/
 URL for form 1 (from previous milestone) 
 ---
 http://linserv1.cims.nyu.edu:12142/add-movie
-\\
+\
 http://linserv1.cims.nyu.edu:12142/edit-movie 
 
 Special Instructions for Form 1
@@ -40,7 +40,7 @@ Allows users to query their list of movies by title. Users can input a keyword o
 URL for form 3 (from previous milestone) 
 ---
 http://linserv1.cims.nyu.edu:12142/login 
-\\
+\
 http://linserv1.cims.nyu.edu:12142/register
 
 Special Instructions for Form 3
@@ -50,27 +50,66 @@ Special Instructions for Form 3
 
 First link to github line number(s) for constructor, HOF, etc.
 ---
-(TODO: add link to line number(s) here) 
+[HOF To Process Images]
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/a5775da5458eac32acce379e9626186e4f16b242/app.mjs#L14C1-L19C1
+\
+[HOF To Authenticate]
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/a5775da5458eac32acce379e9626186e4f16b242/app.mjs#L44C1-L51C3
 
 Second link to github line number(s) for constructor, HOF, etc.
 ---
-(TODO: add link to line number(s) here) 
+[Constructors for users and movies] 
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/db.mjs
+\
+[User Constructor Example]
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/a5775da5458eac32acce379e9626186e4f16b242/auth.mjs#L4C1-L16C2
+\
+[Movie Constructor Example]
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/a5775da5458eac32acce379e9626186e4f16b242/app.mjs#L117C1-L136C1
 
 Short description for links above
 ---
-(TODO: describe what each link above is, one line each... for example: myFunction is a hof that retrieves json from a url, map is used to transform the Array of Person objects into an Array of strings that represents names)
+[HOF To Process Images] 
+Authenticates users
+\
+[HOF To Authenticate]
+Procceses image
+\
+[Constructors for users and movies]
+schemas
+\
+[Movie and User Constructor Example] 
+code where constructor is used
 
 Link to github line number(s) for schemas (db.js or models folder)
 ---
-(TODO: add link to schemas)
+https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/db.mjs
 
 Description of research topics above with points
 ---
-(TODO: add description of research topics here, including point values for each, one per line... for example: 2 points - applied and modified "Clean Blog" Bootstrap theme)
+* (3 points) Unit testing with JavaScript
+    * Testing software where individual components of the codebase are tested
+    * Implement Mocha Test (testing framework)
+    * 4 tests minimum in order to ensure functionality
+* (2 points) CSS Framework
+    * A collection of CSS and js tools that provide help with styling
+    * User bootstrap for custom styling
+    * Create user interface that is userfriendly and aesthetic 
+* (5 points) Automated Functional Testing
+    * Tools that automatically test all functionality of a web app
+    * Headless Chrome to automate testing
+    * Use Headless Chrome to create automated tests, with links to testing code and screen captures of test results
+
+10 points total out of 8 required points
 
 Links to github line number(s) for research topics described above (one link per line)
 ---
-(TODO: add link to github line number(s), one per line for research topics ... for example, if using auth/passport, link to auth.js or where bulk of auth code is)
+* [Unit testing with JavaScript]
+    *
+* [CSS Framework] 
+    * https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/tree/master/views (All .hbs files have css styling and bootstrap)
+    * https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/public/css/style.css (style.css)
+
 
 Optional project notes 
 --- 

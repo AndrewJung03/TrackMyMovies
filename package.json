@@ -2,6 +2,7 @@
   "name": "final-project-andrewjung03",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": ""
@@ -21,6 +22,14 @@
     "mongo-sanitize": "^1.0.0",
     "mongoose": "^8.8.0",
     "mongoose-slug-plugin": "^2.0.1",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "supertest": "^7.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "chai": "^5.1.2",
+    "eslint": "^9.16.0",
+    "globals": "^15.13.0",
+    "mocha": "^11.0.1"
   }
 }
