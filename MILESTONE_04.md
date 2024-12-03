@@ -105,7 +105,7 @@ Description of research topics above with points
 Links to github line number(s) for research topics described above (one link per line)
 ---
 * [Unit testing with JavaScript]
-    *
+    * https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/tests/auth.test.js 
 * [CSS Framework] 
     * https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/tree/master/views (All .hbs files have css styling and bootstrap)
     * https://github.com/nyu-csci-ua-0467-001-002-fall-2024/final-project-AndrewJung03/blob/master/public/css/style.css (style.css)
