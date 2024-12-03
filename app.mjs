@@ -18,12 +18,12 @@ if (!fs.existsSync(uploadDir)) {
 }
 const upload = multer({
   dest: uploadDir,
-  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+  limits: { fileSize: 5 * 1024 * 1024 },
 });
 
 // Middleware Setup
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads', express.static(uploadDir)); // Serve uploaded files
+app.use('/uploads', express.static(uploadDir));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: false }));
